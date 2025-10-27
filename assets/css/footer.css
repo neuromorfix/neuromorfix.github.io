@@ -1,0 +1,193 @@
+#footer {
+  background: #003334;
+  color: #dcdcdc;
+  padding: 2.8em 1em 1.2em;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2em;
+  align-items: start;
+}
+
+.footer-logo { width: 120px; margin-bottom: 0.8em; display:block; }
+.mission { font-size: 0.95em; color: #bfc3c8; margin-bottom: 0.8em; }
+
+.trust-badge { margin-top: 0.6em; }
+.trust-badge ul { list-style: none; padding: 0; margin: 0 0 0.5em 0; }
+.trust-badge li { margin-bottom: 0.3em; }
+.enamad-img { width: 92px; height: auto; display: inline-block; }
+
+.footer-section h4 { color: #fff; margin-bottom: 0.6em; font-size: 1.05em; }
+.footer-section p, .footer-section a, .footer-section li { font-size: 0.93em; line-height: 1.6; color: #c7c7c7; }
+.footer-section a { color: #bdbdbd; text-decoration: none; }
+.footer-section a:hover { color: #fff; text-decoration: underline; }
+
+/* sitemap list */
+.sitemap-list { list-style: none; padding: 0; margin: 0; }
+.sitemap-list li { margin-bottom: 0.45em; }
+
+/* subscribe: input wider, button smaller */
+/* ---------- Subscribe Section: Final Responsive Version ---------- */
+
+/* فرم کلی */
+.subscribe-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  margin-bottom: 0.8em;
+  width: 100%;
+  max-width: 100%; /* تا با CTA هم‌عرض شود */
+}
+
+/* فیلد ایمیل */
+.subscribe-form input {
+  flex: 1; /* بگیرد تقریباً تمام فضا */
+  padding: 0 1em;
+  border-radius: 10px;
+  border: 1px solid #2a2a2d;
+  background: #0b0b0c;
+  color: rgb(117, 117, 117);
+  font-size: 1em;
+  height: 52px; /* ارتفاع ثابت */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* دکمه زنگوله */
+.subscribe-btn {
+  flex: 0 0 auto;
+  padding: 0.6em;
+  border-radius: 10px;
+  border: none;
+  background: #e84e0f;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px; /* برابر با input و CTA */
+  aspect-ratio: 1 / 1;
+  transition: background 0.3s ease;
+}
+
+.subscribe-btn:hover { background: #cf400d; }
+
+/* آیکون زنگ */
+.subscribe-btn i {
+  font-size: 1.3em;
+  pointer-events: none;
+}
+
+/* CTA هم‌ارتفاع با input */
+.cta-button {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: 52px;
+  line-height: 52px;
+  background: #007fa8;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 0.9em;
+}
+
+.cta-button:hover { background: #006485; }
+
+/* موبایل: زیر هم و عرض مساوی */
+@media (max-width: 768px) {
+  .subscribe-form {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .subscribe-form input,
+  .subscribe-btn,
+  .cta-button {
+    width: 100%;
+    height: 52px;
+  }
+  .subscribe-btn {
+    aspect-ratio: auto;
+  }
+}
+
+/* انیمیشن زنگوله */
+@keyframes ringBell {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(15deg); }
+  30% { transform: rotate(-10deg); }
+  45% { transform: rotate(8deg); }
+  60% { transform: rotate(-6deg); }
+  75% { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.bell-ring {
+  animation: ringBell 0.4s ease-in-out;
+}
+
+/* connect / social icons */
+.connect-title { margin-top: 0.2em; }
+.social-icons { display: flex; gap: 0.9em; margin-top: 0.4em; align-items: center; }
+.social-icons a { display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 8px;
+  background: transparent; color: #d1d1d1; border: 1px solid rgba(255,255,255,0.03);
+  text-decoration: none;
+}
+.social-icons a:hover { color: #fff; transform: translateY(-2px); }
+
+/* footer bottom row */
+.footer-bottom { margin-top: 1.6em; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 1em; text-align: center; }
+.footer-legal { font-size: 0.9em; color: #9a9a9a; }
+.footer-legal a { color: #bfbfbf; text-decoration: none; margin: 0 0.4em; }
+.footer-legal a:hover { color: #fff; }
+
+/* responsive */
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .subscribe-form { flex-direction: column; }
+  .subscribe-form input, .subscribe-btn { width: 100%; flex: 0 0 auto; }
+  .social-icons { justify-content: center; }
+}
+/* Collaboration logos */
+.collaborations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 0.6em;
+}
+
+.collab-logo {
+  height: 32px;   /* یکسان برای همه */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease-in-out;
+}
+
+.collab-logo:hover {
+  transform: scale(1.1);
+}
+.footer-decor-vertical {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .footer-decor-vertical .bar-img {
+    width: 100%;
+    max-height: 200px;  /* ارتفاع حداکثر */
+    height: auto; /* ⚡ ارتفاع متناسب با تصویر */
+    display: block;
+    background: #dae8cc url("images/overlay.png");
+  }
+  
+  .bar-mid {
+    background: #dae8cc url("images/overlay.png");
+    width: 100%;
+  }

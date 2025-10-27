@@ -1,0 +1,96 @@
+.game {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fce4ec;
+  border: 5px solid #ccc;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+.name1:hover,.name2:hover{
+  cursor: pointer;
+}
+
+.backgroundTimer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #d32f2f;
+  width: 0;
+  height: 8px;
+  z-index: 20;
+  border-radius: 0 4px 4px 0;
+}
+
+.game>input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 90px;
+  font-size: 28px;
+  opacity: 50%;
+  background: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.5s ease;
+}
+
+.game>input:hover {
+  background: #7e57c2;
+}
+
+.panel1, .panel2 {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0.8;
+  z-index: 7;
+}
+.panel1 { left: 0; }
+.panel2 { right: 0; }
+
+.separator1 {
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: #333;
+  z-index: 10;
+}
+
+.name1, .name2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  font-weight: bold;
+  z-index: 9;
+}
+
+.score {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  z-index: 50;
+  color: transparent; /* hide score value */
+  user-select: none;
+}
+
+.overlay1 {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0);
+  z-index: 30;
+  pointer-events: none;
+}

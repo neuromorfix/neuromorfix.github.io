@@ -1,0 +1,362 @@
+/**
+ * Created by mr_nili on 10/15/2017.
+ */
+
+ 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+.spin {
+    width: 100%;
+    /* margin-left: 50px; */
+    padding: 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.2s linear;
+    background-size: 25%;
+    background-attachment: fixed;                       
+  }
+
+  .spin_left{
+    background-position: center left;
+  }
+  .spin_right{
+    background-position: center right;
+  }
+
+
+@media screen and (max-width:800px) {
+
+    .row {
+        flex-direction: column;
+        margin-bottom: 15%;
+        height: 100%;
+    }
+    .spin_right{background-position: center center;}
+    .spin_left{background-position: center center;}
+    .spin {
+        width: 100%;
+        /* margin: 80px auto; */
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: background-image 0.2s linear;
+        background-size: 50%;
+        background-attachment: fixed;                       
+        background-position: center center;
+        background-color: #fff;
+      }
+
+    .row:nth-child(2) {
+        flex-direction: column-reverse;
+    }
+
+    #Second-Spin, .side-text, #First-Spin, #Third-Spin {
+        width: 100%;
+        text-align: justify;
+    }
+
+    canvas {
+        position: static;
+    }
+}
+
+.side-text h1{
+    padding: 30px;
+    text-align: justify;
+    direction: rtl;
+    color: #a48721;
+    font-size: 40px;
+}
+
+.side-text p {
+    padding: 10px 30px;
+    line-height: 26px;
+    color: #cdcdcd;
+}
+
+
+/*#######  parallax #######*/
+
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+    /* Images */
+
+        .image {
+            position: relative;
+            display: inline-block;
+        }
+        
+            .image:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                /*
+                background: url('images/overlay.png');
+                */
+            }
+        
+            .image img {
+                display: block;
+                width: 100%;
+            }
+
+            .image.featured {
+                display: block;
+                width: 100%;
+                margin: 0 0 2em 0;
+            }
+            
+            .image.full {
+                display: block;
+                width: 100%;
+            }
+            
+            .image.left {
+                float: left;
+                margin: 0 2em 2em 0;
+            }
+            
+            .image.centered {
+                display: block;
+                margin: 0 0 2em 0;
+            }
+
+                .image.centered img {
+                    margin: 0 auto;
+                    width: auto;
+                }
+
+    .right {
+        text-align: right;
+    }
+
+    .left {
+        text-align: left;
+    }
+
+    /* main */
+        
+        .main {
+            position: relative;
+            margin: 0;
+            overflow-x: hidden;            
+        }
+
+        .main.fullscreen {
+            height: 100%;
+        }
+        
+            .main.style1 {
+                text-align: center;
+                padding: 3em 0 3em 0;
+            }
+            
+                .main.style1 h2 {
+                    font-size: 4.25em;
+                    line-height: 1em;
+                    letter-spacing: 0px;                                        
+                }
+
+
+                .main.style1:before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    height: 100%;
+                }
+
+                .main.style1 .content {                    
+                    opacity: 1.0;
+                    display: inline-block;
+                    vertical-align: middle;
+
+                    -moz-transition: all 1s ease;
+                    -webkit-transition: all 1s ease;
+                    -o-transition: all 1s ease;
+                    -ms-transition: all 1s ease;
+                    transition: all 1s ease;
+                    
+                    -moz-transform: translateZ(0);
+                    -webkit-transform: translateZ(0);
+                    -o-transform: translateZ(0);
+                    -ms-transform: translateZ(0);
+                    transform: translateZ(0);
+                }
+                
+            .main.style1.inactive {
+            }
+            
+                .main.style1.inactive .content {
+                    opacity: 0;
+                }
+        
+            .main.style2 {
+                text-align: center;
+                padding: 5em 0 5em 0;
+                overflow: hidden;
+            }
+            
+                .main.style2 .content {
+                    position: relative;
+                    width: 75%;
+                    font-size: 1.2em;
+                    line-height: 1.2em;
+
+                    -moz-transition: all 1s ease;
+                    -webkit-transition: all 1s ease;
+                    -o-transition: all 1s ease;
+                    -ms-transition: all 1s ease;
+                    transition: all 1s ease;
+                    
+                    -moz-transform: translateZ(0);
+                    -webkit-transform: translateZ(0);
+                    -o-transform: translateZ(0);
+                    -ms-transform: translateZ(0);
+                    transform: translateZ(0);
+                }
+            
+                .main.style2.left {
+                    text-align: left;
+                }
+
+                    .main.style2.left .content {
+                        left: 0;
+                    }
+
+                .main.style2.right {
+                    text-align: right;
+                }
+
+                    .main.style2.right .content {
+                        left: 65%;
+                    }
+
+                .main.style2.inactive {
+                }
+
+                    .main.style2.inactive .content {
+                    }
+
+                        .main.style2.inactive.left .content {
+                            left: -35%;
+                        }
+
+                        .main.style2.inactive.right .content {
+                            left: 100%;
+                        }
+
+            .style2 h2 {
+                line-height: 1.1em;
+            }
+
+            .style2 h4 {
+                line-height: 1.1em;
+                font-size: 1.8em;
+            }
+
+            .style2 h5 {
+                line-height: 1.1em;
+                font-size: 1.2em;
+            }
+
+        
+            .main.style3 {
+                text-align: center;
+                padding: 6em 0 6em 0;
+            }
+
+                .main.style3 .content {
+                    width: 75%;
+                    font-size: 1.2em;
+                    line-height: 1.2em;
+                }
+
+                    .main.style3 .content > header {
+                        margin-bottom: 2em;
+                    }
+
+                .main.style3.primary {
+                    background: #fff;
+                }
+            
+                .main.style3.secondary {
+                    /* background: #f5f6f7;*/
+                }
+
+        .style3 h4 {
+                line-height: 1.1em;
+                font-size: 1.8em;
+            }
+
+
+/*********************************************************************************/
+/* CAT                                                                   */
+/*********************************************************************************/
+
+    #INTRO {
+        background: url('../../images/About.jpg') no-repeat;
+        background-size: 80%;
+        background-attachment: fixed;
+        background-position: center;   
+        padding-top: 205px;
+        padding-bottom: 205px;    
+    }
+    
+    #VBM {
+        background: url('../../images/stat.jpg') no-repeat;        
+        background-size: 35%;
+        background-attachment: fixed;                       
+        background-position: center right;
+        background-color: #ffffff;
+    }
+
+
+    #DBM {
+        background: url('../../images/DTI.gif') no-repeat;        
+        background-size: 25%;
+        background-attachment: fixed;                       
+        background-position: center left;
+        background-color: #fff;
+    }
+
+    #SBM {
+        background: url('../../images/cognitive.jpg') no-repeat;        
+        background-size: 30%;
+        background-attachment: fixed;                       
+        background-position: center left;
+        background-color: #ffffff;
+    }
+
+    #RBM {
+        background: url('../../images/mri.png') no-repeat;        
+        background-size: 25%;
+        background-attachment: fixed;                       
+        background-position: center left;
+        background-color: #fff;
+    }
+
+    #Features {
+        background: url('../../images/Features.jpg') no-repeat;        
+        background-size: 80%;
+        background-attachment: fixed;                       
+        background-position: center right;
+        background-color: #dcdee0;
+    }
+
+    #QC {
+        background: url('../../images/QC.jpg') no-repeat;        
+        background-size: 60%;
+        background-attachment: fixed;                       
+        background-position: center left;
+        background-color: #fff;
+    }
