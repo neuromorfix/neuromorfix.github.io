@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Eye-Tracker Data Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/eye_style.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNSVT85FC2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-VNSVT85FC2');
+    </script>
+
+<style>
+  .grid {
+  position: relative;
+  background-image: linear-gradient(45deg, #D2D2D2 0, #D2D2D2 25%, transparent 25%, transparent 75%, #D2D2D2 75%), linear-gradient(45deg, #D2D2D2 0, #D2D2D2 25%, transparent 25%, transparent 75%, #D2D2D2 75%), linear-gradient(#BFBFBF 0, #BFBFBF 100%);
+  background-repeat: repeat;
+  background-size: 128px 128px, 128px 128px, 100% 100%;
+  background-position: 0 0, 64px 64px, 0 0;
+}
+.grid::before, .grid::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  -webkit-animation: hide 10s linear infinite;
+          animation: hide 10s linear infinite;
+  will-change: opacity;
+}
+.grid::before {
+  pointer-events: none;
+  background: radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 448px 0px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 384px 0px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 320px 0px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 256px 0px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 192px 0px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 128px 0px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 0px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 0px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 384px 64px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 320px 64px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 256px 64px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 192px 64px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 128px 64px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 64px 64px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 64px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -64px 64px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 320px 128px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 256px 128px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 192px 128px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 128px 128px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 128px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 128px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 128px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -128px 128px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 256px 192px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 192px 192px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 128px 192px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 192px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 192px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -64px 192px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -128px 192px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -192px 192px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 192px 256px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 128px 256px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 64px 256px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 256px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 256px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -128px 256px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -192px 256px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -256px 256px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 128px 320px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 320px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 320px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 320px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -128px 320px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -192px 320px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -256px 320px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -320px 320px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 64px 384px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 384px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -64px 384px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -128px 384px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -192px 384px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -256px 384px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -320px 384px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -384px 384px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 448px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 448px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -128px 448px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -192px 448px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -256px 448px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -320px 448px/512px 512px, radial-gradient(15% 80% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -384px 448px/512px 512px, radial-gradient(15% 80% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -448px 448px/512px 512px;
+}
+.grid::after {
+  pointer-events: none;
+
+  background: radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 448px 0px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 384px 0px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 320px 0px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 256px 0px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 192px 0px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 128px 0px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 0px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 0px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 384px 64px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 320px 64px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 256px 64px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 192px 64px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 128px 64px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 64px 64px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 64px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -64px 64px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 320px 128px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 256px 128px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 192px 128px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 128px 128px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 128px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 128px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 128px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -128px 128px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 256px 192px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 192px 192px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 128px 192px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 192px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 192px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -64px 192px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -128px 192px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -192px 192px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 192px 256px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 128px 256px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 64px 256px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 256px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 256px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -128px 256px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -192px 256px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -256px 256px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 128px 320px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 64px 320px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 320px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 320px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -128px 320px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -192px 320px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -256px 320px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -320px 320px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 64px 384px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat 0px 384px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -64px 384px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -128px 384px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -192px 384px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -256px 384px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -320px 384px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -384px 384px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat 0px 448px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -64px 448px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -128px 448px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -192px 448px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -256px 448px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -320px 448px/512px 512px, radial-gradient(80% 15% at center, #a6a6a6 0%, #a6a6a6 3%, transparent 3%) repeat -384px 448px/512px 512px, radial-gradient(80% 15% at center, #ececec 0%, #ececec 3%, transparent 3%) repeat -448px 448px/512px 512px;
+}
+
+@-webkit-keyframes hide {
+  0%, 20%, 80%, 100% {
+    opacity: 0;
+  }
+  30%, 70% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0%, 20%, 80%, 100% {
+    opacity: 0;
+  }
+  30%, 70% {
+    opacity: 1;
+  }
+}
+</style>
+  </head>
+  <body class="homepage">
+
+    <!-- Wrapper -->
+      <div id="wrapper plot-wrapper">
+
+
+      <!-- Header -->
+        <section id="eye_background" class="plot-container grid wrapper">
+        <div class="eye"><div class="iris anim"></div></div>
+
+          <!-- Logo -->
+            <div id="logo">
+              <h1><a href="#">Eye-Tracking</a></h1>
+            </div>
+
+          <!-- Nav -->
+          <nav id="nav">
+            <ul>
+              <li><i class="fa fa-language" aria-hidden="true"></i>
+                <ul>
+                  <li><a href="fa/index.html">Fa</a></li>
+                  <li><a href="index.html">En</a></li>
+                </ul>
+              </li>
+              <li>
+              <li class="current"><a href="index.html">Home</a></li>
+              <li>
+                <a>Services</a>
+                <ul>
+                  <!-- <li><a href="service.html#methods">fMRI</a></li> -->
+                  <li><a href="fmri.html">fMRI</a></li>
+                  <li><a href="dti.html">dMRI</a></li>
+                  <li><a href="qmri.html">qMRI</a></li>
+                  <li><a href="mri.html">sMRI</a></li>
+                  <li><a href="eeg.html">EEG</a></li>
+                  <li><a href="eye.html">Eye-tracking</a></li>
+                  <li><a href="cognitive.html">Cognitive Task Design</a></li>
+                  <li><a href="stat.html">Statistical Modeling</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="team.html">About Us</a>
+              </li>
+              <li>
+                <a href="projects.html">Projects</a>
+              </li>
+              <li>
+                <a href="resources.html">Resources</a>
+              <li><a href="index.html#footer">Contact</a></li>
+            </li>
+          </nav>
+
+        </section>
+
+      <!-- Main -->
+      <section id="mohammad" class="wrapper style22 alt">
+        <div class="container team-member">
+          <div class="member-content">
+            <img src="images/Picture19.png" alt="Mohammad Nili" class="member-image">
+            <div class="member-text">
+              <h3>Visual Attention Analyses</h3>
+              <p class="member-role">Eye-Tracking</p>
+              <p>
+                Our Eye-Tracking Analyses provide a comprehensive framework for quantifying visual attention, oculomotor behavior, cognitive processing, and decision-making. These analyses are suitable for both controlled experiments and real-world interfaces, enabling insights into attention allocation, gaze patterns, cognitive load, and user experience.
+                <h6>Supported methods include:</h6>
+                <ul>
+                  <li>Fixation Analysis</li>
+                  <li>Gaze Duration</li>
+                  <li>Time to First Fixation (TTFF)</li>
+                  <li>Scanpath Analysis</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      <section class="wrapper style2 alt">
+        <div class="container team-member">
+          <div class="member-content reverse">
+            <img src="images/Picture18.png" alt="Cortical-FC" class="member-image">
+            <div class="member-text">
+              <h3>Spatial Distribution Analyses</h3>
+              <p class="member-role">Eye-Tracking</p>
+              <p>
+                Our Eye-Tracking Spatial Distribution Analyses Characterization of gaze distribution across a scene or image.
+                <h6>Supported methods include:</h6>
+                <ul>
+                  <li>Heatmaps</li>
+                  <li>Areas of Interest (AOI) Analysis</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="mohammad" class="wrapper style22 alt">
+        <div class="container team-member">
+          <div class="member-content">
+            <img src="images/Picture20.png" alt="Mohammad Nili" class="member-image">
+            <div class="member-text">
+              <h3>Eye Movement Metrics</h3>
+              <p class="member-role">Eye-Tracking</p>
+              <p>
+                Our Eye Movement Metrics Analyses of oculomotor behavior and dynamics.
+                <ul>
+                  <li>Saccades</li>
+                  <li>Fixation Count</li>
+                  <li>Saccade Amplitude</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="wrapper style2 alt">
+        <div class="container team-member">
+          <div class="member-content reverse">
+            <img src="images/Picture21.png" alt="Cortical-FC" class="member-image">
+            <div class="member-text">
+              <h3>Cognitive Load & Processing Analyses</h3>
+              <p class="member-role">Eye-Tracking</p>
+              <p>
+                Our Cognitive Load & Processing Analyses, Using eye-tracking to infer cognitive processes and mental effort.
+                <h6>Supported methods include:</h6>
+                <ul>
+                  <li>Pupil Dilation</li>
+                  <li>Blink Rate</li>
+                  <li>Reading Patterns</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="mohammad" class="wrapper style22 alt" style="margin-bottom: 0;">
+        <div class="container team-member">
+          <div class="member-content">
+            <img src="images/Picture22.png" alt="Mohammad Nili" class="member-image">
+            <div class="member-text">
+              <h3>Eye Decision & User Experience Analyses</h3>
+              <p class="member-role">Eye-Tracking</p>
+              <p>
+                Our Eye Decision & User Experience Analyses, Evaluating how users interact with interfaces and make choices.
+                <ul>
+                  <li>Choice Analysis</li>
+                  <li>Usability Testing Metrics</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+        </div>
+      </div>
+      
+      <!-- Decorative Bars Above Footer -->
+      <section class="wrapper style22 alt footer-decor-vertical" style="margin: 0; padding: 0; line-height: 0;">
+        <img src="images/dr_down.png" alt="Bottom Image" class="bar-img" style="display: block; width: 100%; height: auto; margin: 0; padding: 0;">
+      </section>
+      
+      <!-- Footer -->
+      <footer id="footer" class="wrapper style3">
+        <div class="container footer-grid">
+      
+          <!-- Brand + Mission + Enamad -->
+          <div class="footer-section footer-brand">
+            <img src="images/logo.png" alt="MN Neuro Lab" class="footer-logo">
+            <p class="mission">
+              Our mission is to bridge neuroscience and technology through innovative data-driven research and intelligent analysis.
+            </p>
+      
+            <!-- Enamad / External links -->
+            <div class="trust-badge collaborations">
+              <h4>Collaborations</h4>
+            
+              <div class="collaborations" role="navigation" aria-label="collaborations links">
+                <a href="https://nbic.ut.ac.ir" target="_blank" rel="noopener">
+                  <img src="images/logo/nbic_logo.png" alt="NBIC" class="collab-logo">
+                </a>
+                <a href="https://nbic.iums.ac.ir" target="_blank" rel="noopener">
+                  <img src="images/logo/brainـcentre.png" alt="NBIC IUMS" class="collab-logo">
+                </a>
+                <a href="https://nbml.ir" target="_blank" rel="noopener">
+                  <img src="images/logo/Nbml.png" alt="NBML" class="collab-logo">
+                </a>
+                <a href="https://drertiaei.com" target="_blank" rel="noopener">
+                  <img src="images/logo/ertiaei.png" alt="Dr Ertiaei" class="collab-logo">
+                </a>
+                <a href="https://ut.ac.ir" target="_blank" rel="noopener">
+                  <img src="images/logo/ut_logo.png" alt="University of Tehran" class="collab-logo">
+                </a>
+                <a href="https://en.tums.ac.ir/en" target="_blank" rel="noopener">
+                  <img src="images/logo/tums.png" alt="TUMS" class="collab-logo">
+                </a>
+              </div>
+            
+              <!-- Enamad -->
+              <a href="#" target="_blank" rel="noopener">
+                <img src="images/enamad.png" alt="نماد الکترونیک" class="enamad-img">
+              </a>
+              <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=664475&Code=djBCJdRX2E84d3eYlzecHbA8U81LD7pp'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=664475&Code=djBCJdRX2E84d3eYlzecHbA8U81LD7pp' alt='' style='cursor:pointer' code='djBCJdRX2E84d3eYlzecHbA8U81LD7pp'></a>
+            </div>
+            
+          </div>
+      
+          <!-- Contact Info -->
+          <div class="footer-section footer-contact">
+            <h4>Contact</h4>
+            <p><strong>Head Office:</strong><br>
+              No. 43, 3th Floor,<br>Opposite Jam Hospital,<br>Jam Street, Motahari Street,<br>Tehran, Tehran, Iran
+            </p>
+            <p><strong>Laboratory:</strong><br>
+              Convergent Research Institute,<br>Faculty of Engineering,<br> University of Tehran,<br>North Amirabad Street,<br>Tehran, Tehran, Iran
+            </p>
+            <p><strong>Phone:</strong> <a href="tel:+982112345678">+98 21 9130 0655</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@mnlab.ir">info@neuromorfix.ir</a></p>
+          </div>
+      
+          <!-- Sitemap (HTML sitemap inside footer) -->
+          <div class="footer-section footer-links">
+            <h4>Sitemap</h4>
+            <ul class="sitemap-list">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="publications.html">Publications</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="consultation.html">Request Analysis</a></li>
+            </ul>
+          </div>
+      
+          <!-- Subscription + CTA + Social -->
+          <div class="footer-section footer-subscribe">
+            <h4>Stay Updated</h4>
+      
+            <form id="subscribe-form" class="subscribe-form" novalidate>
+              <input type="email" id="subscribe-email" name="email" placeholder="Your email" required>
+            
+              <!-- Hidden field to label email as subscription -->
+              <input type="hidden" name="type" value="subscription">
+            
+              <button type="submit" class="subscribe-btn" title="Subscribe">
+                <i class="fa fa-bell"></i>
+              </button>
+            </form>
+            
+            <div id="subscribe-feedback" class="msg" style="text-align:center; font-size:14px; margin-top:6px; display:none;"></div>
+            
+            
+            <a href="consultation.html" class="cta-button">Request Analysis</a>
+            
+      
+            <!-- Social -->
+            <h4 class="connect-title">Connect</h4>
+            <div class="social-icons" role="navigation" aria-label="Social links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+      
+        </div>
+      
+        <!-- Bottom row: legal + FAQ + sitemap.xml + Privacy + Terms -->
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <p>
+              © <span id="year"></span> NeuroMorFix Group. All rights reserved for <a href="https://mneda.ir">mneda</a>,<a href="https://mnili.ir">mnili</a>
+              <span class="legal-links">
+                | <a href="faq.html">FAQ</a>
+                | <a href="sitemap.xml" target="_blank" rel="noopener">Sitemap</a>
+                | <a href="privacy.html">Privacy Policy</a>
+                | <a href="terms.html">Terms</a>
+              </span>
+            </p>
+          </div>
+        </div>
+      </footer>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.dropotron.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/eye_script.js"></script>
+      <script src="assets/js/footer_subscription.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Functional Brain Data Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/req_analysis_form.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <!-- Google tag (gtag.js) -->
+    <style>
+.wave-box {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background-image: url("/home/mrnili/Downloads/click-waves-effect-mo-js/dist/brain_fc.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+
+  /* ✅ Centering */
+  margin: 0 auto;              /* centers horizontally */
+  top: 50%;                    /* moves to vertical center */
+  transform: translateY(-50%); /* corrects the vertical centering */
+}
+
+      .wave {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0.7;
+        animation: wave 1.5s ease-out forwards;
+        pointer-events: none;
+      }
+  
+      @keyframes wave {
+        to {
+          transform: scale(3);
+          opacity: 0;
+        }
+      }
+    </style>
+    
+
+  </head>
+  <body class="homepage  is-preload " style="background: #dcecf8 url('images/overlay.png');  ">
+    <!-- Wrapper -->
+      <div id="plot-wrapper">
+      <!-- Header -->
+        <section id="dti_background" class="plot-container">
+          <div class="wave-box" id="waveBox"></div>
+
+          <!-- Logo -->
+            <div id="logo">
+              <h1>Functional Brain Data Analysis</h1>
+            </div>
+
+          <!-- Nav -->
+          <nav id="nav">
+            <ul>
+              <li><i class="fa fa-language" aria-hidden="true"></i>
+                <ul>
+                  <li><a href="fa/index.html">Fa</a></li>
+                  <li><a href="index.html">En</a></li>
+                </ul>
+              </li>
+              <li>
+              <li class="current"><a href="index.html">Home</a></li>
+              <li>
+                <a>Services</a>
+                <ul>
+                  <!-- <li><a href="service.html#methods">fMRI</a></li> -->
+                  <li><a href="fmri.html">fMRI</a></li>
+                  <li><a href="dti.html">dMRI</a></li>
+                  <li><a href="qmri.html">qMRI</a></li>
+                  <li><a href="mri.html">sMRI</a></li>
+                  <li><a href="eeg.html">EEG</a></li>
+                  <li><a href="eye.html">Eye-tracking</a></li>
+                  <li><a href="cognitive.html">Cognitive Task Design</a></li>
+                  <li><a href="stat.html">Statistical Modeling</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="team.html">About Us</a>
+              </li>
+              <li>
+                <a href="projects.html">Projects</a>
+              </li>
+              <li>
+                <a href="resources.html">Resources</a>
+              <li><a href="index.html#footer">Contact</a></li>
+            </li>
+          </nav>
+
+        </section>
+
+      <!-- Main -->
+
+<section class="wrapper style2 alt">
+  <div class="container team-member">
+    <div class="member-content">
+      <img src="images/Picture6.png" alt="Cortical-FC" class="member-image">
+      <div class="member-text">
+        <h3>Functional and Resting-State Connectivity</h3>
+        <p class="member-role">Functional MRI</p>
+        <p>
+          Our team integrates both task-based and resting-state fMRI data to map the full spectrum of functional brain organization—from transient activation patterns to stable connectivity networks. This dual approach allows for comprehensive assessment of how external stimuli and intrinsic activity jointly shape cortical dynamics. We employ multimodal modeling frameworks to align activation clusters with underlying resting-state networks, enabling robust cross-condition comparisons and multimodal interpretation.
+          <h6>Supported methods include:</h6>
+          <ul>
+            <li>Preprocessing</li>
+            <li>General Linear Model (GLM)</li>
+            <li>Joint GLM–Connectivity Modeling</li>
+            <li>Psychophysiological Interaction (PPI)</li>
+            <li>Independent Component Analysis (ICA)</li>
+            <li>Functional Connectivity Analysis</li>
+            <li>Multimodal Visualization.</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mohammad" class="wrapper style22 alt">
+  <div class="container team-member">
+    <div class="member-content reverse">
+      <img src="images/Picture7.png" alt="Mohammad Nili" class="member-image">
+      <div class="member-text">
+        <h3>Multivariate Pattern fMRI Analysis</h3>
+        <p class="member-role">Functional MRI</p>
+        <p>
+          Our Multivariate Pattern Analysis (MVPA) framework provides an advanced multivariate modeling approach to decode distributed neural information across voxels, regions, or networks. Unlike classical univariate methods, MVPA captures spatially correlated activation patterns that jointly represent perceptual, cognitive, or clinical states. This analysis allows for both discriminative decoding and representational modeling, offering a bridge between brain activity patterns, computational models, and behavior.
+          We integrate complementary approaches — including Representational Similarity Analysis (RSA), Distance Correlation (dCor), Singular Value Decomposition (SVD), Representational Component Analysis (RCA), and Multivariate Pattern Dependence (MVPD) — to provide a full-spectrum characterization of neural representational structure and inter-regional dependencies.
+          <h6>Supported methods include:</h6>
+          <ul>
+            <li>Representational Similarity Analysis (RSA)</li>
+            <li>Distance Correlation (dCor)</li>
+            <li>Singular Value Decomposition (SVD)</li>
+            <li>Representational Component Analysis (RCA)</li>
+            <li>Multivariate Pattern Dependence (MVPD)</li>
+            <li>Searchlight and ROI-based Implementation</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="wrapper style2 alt">
+  <div class="container team-member">
+    <div class="member-content">
+      <img src="images/Picture9.png" alt="Cortical-FC" class="member-image">
+      <div class="member-text">
+        <h3>Network Analysis and Graph Theory Metrics</h3>
+        <p class="member-role">Functional MRI</p>
+        <p>
+          Our Brain Network and Graph-Theoretical Analysis service characterizes the brain as a complex, interconnected network, using advanced mathematical models to quantify topology and organization. This approach transforms voxel- or ROI-level time series into a graph representation, allowing precise evaluation of how efficiently different brain regions exchange information. It supports both static and dynamic modeling for deep insight into network efficiency and resilience.
+          <h6>Supported methods include:</h6>
+          <ul>
+            <li>Correlation and Partial Correlation Networks</li>
+            <li>Graph-Theoretical Indices</li>
+            <li>Network-Based Statistics (NBS)</li>
+            <li>Community Detection Algorithms</li>
+            <li>Visualization Tools</li>
+            <li>Dynamic Connectivity</li>
+            <li>Network Coherence Metrics</li>
+            <li>Graph-Theoretical Metrics.</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mohammad" class="wrapper style22 alt" style="margin-bottom: 0;">
+  <div class="container team-member">
+    <div class="member-content reverse">
+      <img src="images/Picture8.png" alt="Mohammad Nili" class="member-image">
+      <div class="member-text">
+        <h3>Machine Learning and Deep Learning fMRI Modeling</h3>
+        <p class="member-role">Functional MRI</p>
+        <p>
+          Our Machine Learning and Deep Learning Analysis framework leverages modern computational models to capture complex, nonlinear relationships within large-scale fMRI datasets. These data-driven methods enable predictive modeling of behavioral outcomes, clinical diagnosis, and cognitive states from multivariate brain signals. By combining high-dimensional feature extraction with supervised and unsupervised algorithms, we uncover latent representations that traditional statistical models often miss.
+          <ul>
+            <li>Classical Machine Learning models</li>
+            <li>Deep Learning Architectures</li>
+            <li>Autoencoders and Variational Models</li>
+            <li>Cross-Modal Prediction</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</div>
+
+<!-- Decorative Bars Above Footer -->
+<section class="wrapper style22 alt footer-decor-vertical" style="margin: 0; padding: 0; line-height: 0;">
+  <img src="images/dr_down.png" alt="Bottom Image" class="bar-img" style="display: block; width: 100%; height: auto; margin: 0; padding: 0;">
+</section>
+
+<!-- Footer -->
+<footer id="footer" class="wrapper style3">
+  <div class="container footer-grid">
+
+    <!-- Brand + Mission + Enamad -->
+    <div class="footer-section footer-brand">
+      <img src="images/logo.png" alt="MN Neuro Lab" class="footer-logo">
+      <p class="mission">
+        Our mission is to bridge neuroscience and technology through innovative data-driven research and intelligent analysis.
+      </p>
+
+      <!-- Enamad / External links -->
+      <div class="trust-badge collaborations">
+        <h4>Collaborations</h4>
+      
+        <div class="collaborations" role="navigation" aria-label="collaborations links">
+          <a href="https://nbic.ut.ac.ir" target="_blank" rel="noopener">
+            <img src="images/logo/nbic_logo.png" alt="NBIC" class="collab-logo">
+          </a>
+          <a href="https://nbic.iums.ac.ir" target="_blank" rel="noopener">
+            <img src="images/logo/brainـcentre.png" alt="NBIC IUMS" class="collab-logo">
+          </a>
+          <a href="https://nbml.ir" target="_blank" rel="noopener">
+            <img src="images/logo/Nbml.png" alt="NBML" class="collab-logo">
+          </a>
+          <a href="https://drertiaei.com" target="_blank" rel="noopener">
+            <img src="images/logo/ertiaei.png" alt="Dr Ertiaei" class="collab-logo">
+          </a>
+          <a href="https://ut.ac.ir" target="_blank" rel="noopener">
+            <img src="images/logo/ut_logo.png" alt="University of Tehran" class="collab-logo">
+          </a>
+          <a href="https://en.tums.ac.ir/en" target="_blank" rel="noopener">
+            <img src="images/logo/tums.png" alt="TUMS" class="collab-logo">
+          </a>
+        </div>
+      
+        <!-- Enamad -->
+        <a href="#" target="_blank" rel="noopener">
+          <img src="images/enamad.png" alt="نماد الکترونیک" class="enamad-img">
+        </a>
+        <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=664475&Code=djBCJdRX2E84d3eYlzecHbA8U81LD7pp'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=664475&Code=djBCJdRX2E84d3eYlzecHbA8U81LD7pp' alt='' style='cursor:pointer' code='djBCJdRX2E84d3eYlzecHbA8U81LD7pp'></a>
+      </div>
+      
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section footer-contact">
+      <h4>Contact</h4>
+      <p><strong>Head Office:</strong><br>
+        No. 43, 3th Floor,<br>Opposite Jam Hospital,<br>Jam Street, Motahari Street,<br>Tehran, Tehran, Iran
+      </p>
+      <p><strong>Laboratory:</strong><br>
+        Convergent Research Institute,<br>Faculty of Engineering,<br> University of Tehran,<br>North Amirabad Street,<br>Tehran, Tehran, Iran
+      </p>
+      <p><strong>Phone:</strong> <a href="tel:+982112345678">+98 21 9130 0655</a></p>
+      <p><strong>Email:</strong> <a href="mailto:info@mnlab.ir">info@neuromorfix.ir</a></p>
+    </div>
+
+    <!-- Sitemap (HTML sitemap inside footer) -->
+    <div class="footer-section footer-links">
+      <h4>Sitemap</h4>
+      <ul class="sitemap-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="consultation.html">Request Analysis</a></li>
+      </ul>
+    </div>
+
+    <!-- Subscription + CTA + Social -->
+    <div class="footer-section footer-subscribe">
+      <h4>Stay Updated</h4>
+
+      <form id="subscribe-form" class="subscribe-form" novalidate>
+        <input type="email" id="subscribe-email" name="email" placeholder="Your email" required>
+      
+        <!-- Hidden field to label email as subscription -->
+        <input type="hidden" name="type" value="subscription">
+      
+        <button type="submit" class="subscribe-btn" title="Subscribe">
+          <i class="fa fa-bell"></i>
+        </button>
+      </form>
+      
+      <div id="subscribe-feedback" class="msg" style="text-align:center; font-size:14px; margin-top:6px; display:none;"></div>
+      
+      
+      <a href="consultation.html" class="cta-button">Request Analysis</a>
+      
+
+      <!-- Social -->
+      <h4 class="connect-title">Connect</h4>
+      <div class="social-icons" role="navigation" aria-label="Social links">
+        <a href="https://linkedin.com" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom row: legal + FAQ + sitemap.xml + Privacy + Terms -->
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>
+        © <span id="year"></span> NeuroMorFix Group. All rights reserved for <a href="https://mneda.ir">mneda</a>,<a href="https://mnili.ir">mnili</a>
+        <span class="legal-links">
+          | <a href="faq.html">FAQ</a>
+          | <a href="sitemap.xml" target="_blank" rel="noopener">Sitemap</a>
+          | <a href="privacy.html">Privacy Policy</a>
+          | <a href="terms.html">Terms</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script>
+      const box = document.getElementById('waveBox');
+  
+      box.addEventListener('click', function(e) {
+        const rect = box.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+  
+        // Create 3 expanding circles with slight delays
+        for (let i = 0; i < 3; i++) {
+          const wave = document.createElement('span');
+          wave.classList.add('wave');
+          wave.style.left = `${x}px`;
+          wave.style.top = `${y}px`;
+          wave.style.animationDelay = `${i * 0.2}s`; // small delay between waves
+          box.appendChild(wave);
+          setTimeout(() => wave.remove(), 2000); // remove after animation
+        }
+      });
+    </script>
+      
+    <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.dropotron.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/footer_subscription.js"></script>
+      
+  </body>
+</html>
